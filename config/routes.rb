@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  resources :games, only: [:create] do
+    collection do
+      get 'waiting'
+    end
+    member do
+      post 'accept'
+      post 'attempt'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

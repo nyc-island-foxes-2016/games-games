@@ -1,4 +1,8 @@
 class Game < ActiveRecord::Base
-  belongs_to: player1, class_name: 'User'
-  belongs_to: player2, class_name: 'User'
+  
+  def correct?(attempting_player, proposed_path)
+    target =  attempting_player  == player1 ? board2 : board1
+    target.start_with? proposed_path
+  end
+
 end
