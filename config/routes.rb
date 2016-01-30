@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       post 'attempt'
     end
   end
+  match '*all' => 'application#cors_options', via: :options
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
