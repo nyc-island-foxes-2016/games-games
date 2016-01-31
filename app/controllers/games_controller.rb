@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   def create
+    byebug
     g = Game.new(player1: params[:player], board1: params[:board])
     g.save!
     render json: { id:g.id, result: 'OK', status: 201 }
@@ -25,6 +26,6 @@ class GamesController < ApplicationController
 
   def waiting
     games = Game.where(player2: nil).pluck(:player1, :created_at)
-    render json: games 
+    render json: games
   end
 end
