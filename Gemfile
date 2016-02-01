@@ -34,6 +34,7 @@ group :development, :test do
   gem 'byebug'
   # 'cause pry is better
   gem 'pry-rails'
+  gem 'pry-nav'
 end
 
 group :development do

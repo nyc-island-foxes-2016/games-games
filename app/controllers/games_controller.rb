@@ -1,8 +1,8 @@
 class GamesController < ApplicationController
   def create
     g = Game.new(player1: params[:player], board1: params[:board])
-    g.save
-    render json: { id:g.id, result: 'OK', status: 201 }
+    g.save!
+    render json: { gameId: g.id, player: g.player1, result: 'OK', status: 201 }
   end
 
   def accept
@@ -10,7 +10,7 @@ class GamesController < ApplicationController
     g.player2 = params[:player]
     g.board2 = params[:board]
     g.save!
-    render json: { result: 'OK', status: 200 }
+    render json: { gameId: g.id, player: g.player2, result: 'OK', status: 200 }
   end
 
   def attempt
@@ -19,7 +19,7 @@ class GamesController < ApplicationController
     if g.correct?(params[:player], params[:board])
       render json: { result: 'Yes', status: 200 }
     else
-      render json: { result: 'No', status: 404 }, status: 404
+      render json: { result: 'No', status: 300 }, status: 300
     end
   end
 
@@ -33,7 +33,7 @@ class GamesController < ApplicationController
     if !g.player2.nil?
       render json: { result: 'Yes', status: 200 }
     else
-      render json: { result: 'No', status: 404 }, status: 404
+      render json: { result: 'No', status: 200 }
     end
   end
 
