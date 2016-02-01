@@ -37,4 +37,11 @@ class GamesController < ApplicationController
     end
   end
 
+  def destroy
+    g = Game.find(params[:id])
+    if g.destroy!
+      render json: { result: 'Yes', status: 200 }
+    end
+  end
+
 end
