@@ -19,7 +19,7 @@ class GamesController < ApplicationController
     if g.correct?(params[:player], params[:board])
       render json: { result: 'Yes', status: 200 }
     else
-      render json: { result: 'No', status: 404 }, status: 404
+      render json: { result: 'No', status: 300 }, status: 300
     end
   end
 
