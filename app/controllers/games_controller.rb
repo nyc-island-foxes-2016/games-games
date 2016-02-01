@@ -33,7 +33,7 @@ class GamesController < ApplicationController
     if !g.player2.nil?
       render json: { result: 'Yes', status: 200 }
     else
-      render json: { result: 'No', status: 404 }, status: 404
+      render json: { result: 'No', status: 200 }
     end
   end
 
