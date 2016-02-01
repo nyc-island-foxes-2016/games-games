@@ -1,8 +1,7 @@
 class GamesController < ApplicationController
   def create
-    byebug
     g = Game.new(player1: params[:player], board1: params[:board])
-    g.save!
+    g.save
     render json: { id:g.id, result: 'OK', status: 201 }
   end
 
