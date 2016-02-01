@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       get 'waiting'
     end
     member do
+      get 'joined'
       post 'accept'
       post 'attempt'
     end
