@@ -27,4 +27,14 @@ class GamesController < ApplicationController
     games = Game.where(player2: nil).pluck(:id, :player1, :created_at)
     render json: games
   end
+
+  def joined
+    g = Game.find(params[:id])
+    if !g.player2.nil?
+      render json: { result: 'Yes', status: 200 }
+    else
+      render json: { result: 'No', status: 404 }, status: 404
+    end
+  end
+
 end
