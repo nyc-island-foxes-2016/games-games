@@ -2,7 +2,7 @@ class GamesController < ApplicationController
   def create
     g = Game.new(player1: params[:player], board1: params[:board])
     g.save!
-    render json: { id: g.id, result: 'OK', status: 201 }
+    render json: { id: g.id, player: g.player1, result: 'OK', status: 201 }
   end
 
   def accept
