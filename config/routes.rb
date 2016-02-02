@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :games, only: [:create, :destroy, :show] do
+  resources :games, only: [:create, :destroy] do
     collection do
       get 'waiting'
     end
@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get 'joined'
       post 'accept'
       post 'attempt'
+      get 'playing'
     end
   end
   match '*all' => 'application#cors_options', via: :options
