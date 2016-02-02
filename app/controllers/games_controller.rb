@@ -5,6 +5,9 @@ class GamesController < ApplicationController
     render json: { gameId: g.id, player: g.player1, result: 'OK', status: 201 }
   end
 
+  def show
+  end
+
   def accept
     g = Game.find(params[:id])
     g.player2 = params[:player]

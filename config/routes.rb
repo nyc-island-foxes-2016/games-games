@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :games, only: [:create, :destroy] do
+  resources :games, only: [:create, :destroy, :show] do
     collection do
       get 'waiting'
     end
