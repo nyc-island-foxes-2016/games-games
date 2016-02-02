@@ -7,6 +7,8 @@ Rails.application.routes.draw do
       get 'joined'
       post 'accept'
       post 'attempt'
+      get 'playing'
+      patch 'gameover'
     end
   end
   match '*all' => 'application#cors_options', via: :options
