@@ -7,7 +7,7 @@ class GamesController < ApplicationController
 
   def playing
     g = Game.find(params[:id])
-    render json: { result: g.is_complete, status: 200 }
+    render json: { result: g.is_playing, status: 200 }
   end
 
   def accept
@@ -40,6 +40,12 @@ class GamesController < ApplicationController
     else
       render json: { result: 'No', status: 200 }
     end
+  end
+
+  def gameover
+    g = Game.find(params[:id])
+    g.update_attributes(is_playing: false)
+    render json: { gameId: g.id, status: 200 }
   end
 
   def destroy
