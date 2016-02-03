@@ -29,7 +29,7 @@ class GamesController < ApplicationController
   end
 
   def waiting
-    games = Game.where(player2: nil).pluck(:id, :player1, :created_at)
+    games = Game.where(player2: nil).pluck(:id)
     render json: games
   end
 
