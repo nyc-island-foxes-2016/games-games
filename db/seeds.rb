@@ -6,5 +6,5 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 40.times do
-  Game.create(player1: "Sasha team: #{rand % 1000000}", board1: 'ABCD')
+  Game.create(player1: "Sasha team: #{rand(1..1000000)}", board1: 'ABCD')
 end
